@@ -1,0 +1,77 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PWNZOR - Backdoor Vector Scanner</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <svg width="50" height="50" viewBox="0 0 50 50">
+          <circle cx="25" cy="25" r="20" fill="none" stroke="#00a8ff" stroke-width="2"/>
+          <path d="M25 15 L25 35 M15 25 L35 25" stroke="#00a8ff" stroke-width="2"/>
+        </svg>
+        <h1>PWNZOR</h1>
+      </div>
+      <p class="tagline">Backdoor Vector Scanner</p>
+    </header>
+
+    <main>
+      <div class="disclaimer" id="disclaimer">
+        <h3>Ethical Security Notice</h3>
+        <p>This tool identifies potential backdoor vectors for ethical assessment only. Always:</p>
+        <ul>
+          <li>Obtain proper authorization before testing</li>
+          <li>Follow responsible disclosure practices</li>
+          <li>Document and report findings responsibly</li>
+          <li>Use findings to improve security, not exploit it</li>
+        </ul>
+      </div>
+
+      <div class="scan-warning" id="scan-warning">
+        <h3>⚠️ Scanning Notice</h3>
+        <p>This scanner will attempt to detect potential security issues. Please ensure you:</p>
+        <ul>
+          <li>Have permission to scan the target website</li>
+          <li>Are aware that scanning may be logged by the target</li>
+          <li>Understand that results may not be 100% accurate</li>
+        </ul>
+      </div>
+
+      <div class="scan-form">
+        <input type="url" id="target-url" placeholder="Enter website URL to scan" required>
+        <button onclick="startScan()" id="scan-btn">Start Scan</button>
+      </div>
+
+      <div class="results-container" id="results">
+        <div class="progress-bar">
+          <div class="progress" id="scan-progress"></div>
+        </div>
+        <div class="status" id="status">Ready to scan for potential backdoor vectors</div>
+        <div class="scan-stats">
+          <div class="stat-box">
+            <div class="stat-number" id="total-vectors">0</div>
+            <div class="stat-label">Vectors Checked</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number" id="found-vectors">0</div>
+            <div class="stat-label">Vectors Found</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number" id="risk-score">0</div>
+            <div class="stat-label">Risk Score</div>
+          </div>
+        </div>
+      </div>
+      <div class="findings" id="findings"></div>
+      <div class="common-paths">
+        <h3>Vectors Being Scanned:</h3>
+        <ul id="paths-list"></ul>
+      </div>
+    </main>
+  </div>
+  <script src="scanner.js"></script>
+</body>
+</html>
